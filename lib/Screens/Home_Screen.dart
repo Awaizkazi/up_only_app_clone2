@@ -49,22 +49,30 @@ class _Home_ScreenState extends State<Home_Screen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                cards('Call Module', 'assets/call.png',
-                    Color.fromARGB(255, 0, 16, 1), Colors.green),
+                cards(
+                  'Call Module',
+                  'To being calling, get lead\ninformation here',
+                  'assets/call.png',
+                  Color.fromARGB(255, 0, 16, 1),
+                  Colors.green,
+                ),
                 cards(
                   'F2F',
+                  'Have you met in person?\nUpdate here.',
                   'assets/F2F.png',
                   Color.fromARGB(255, 18, 52, 57),
                   Colors.cyan,
                 ),
                 cards(
                   'CRM',
+                  'Has the lead to become a\nclient? Update here',
                   'assets/CRM.png',
                   Color.fromARGB(223, 47, 42, 2),
                   Color.fromARGB(208, 247, 224, 10),
                 ),
                 cards(
                   'HCMS',
+                  'Health Care\nManagement System',
                   'assets/HCMS.png',
                   Color.fromARGB(223, 47, 42, 2),
                   Color.fromARGB(208, 247, 224, 10),
@@ -77,12 +85,12 @@ class _Home_ScreenState extends State<Home_Screen> {
     );
   }
 
-  Widget cards(cardTitle, cardImage, g1Color, g2Color) {
+  Widget cards(cardTitle, cardSubTitle, cardImage, g1Color, g2Color) {
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Container(
         width: 720,
-        height: 80,
+        height: 90,
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [g1Color, g2Color],
@@ -94,13 +102,23 @@ class _Home_ScreenState extends State<Home_Screen> {
           children: [
             Padding(
               padding: const EdgeInsets.all(16.0),
-              child: Text(
-                cardTitle,
-                style: TextStyle(
-                  fontWeight: FontWeight.w900,
-                  fontSize: 24,
-                  color: Colors.white,
-                ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    cardTitle,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w900,
+                      fontSize: 24,
+                      color: Colors.white,
+                    ),
+                  ),
+                  Text(
+                    cardSubTitle,
+                    style: TextStyle(fontSize: 13, color: Colors.white),
+                  ),
+                ],
               ),
             ),
             Image.asset(
