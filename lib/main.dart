@@ -1,9 +1,13 @@
 // ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
+import 'package:up_only_app_clone2/API/api_service.dart';
 import 'Starting_Screen.dart';
 
-void main() {
+void main() async {
+  var userModel = await APIService.getUsers();
+  userModel!.data!.forEach((element) {
+    print(element.id);
+  });
   runApp(const MyApp());
 }
 
