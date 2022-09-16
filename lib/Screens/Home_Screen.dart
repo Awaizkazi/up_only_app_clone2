@@ -1,7 +1,4 @@
 // ignore_for_file: file_names
-
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 class Home_Screen extends StatefulWidget {
@@ -17,7 +14,6 @@ class _Home_ScreenState extends State<Home_Screen> {
     return Scaffold(
       backgroundColor: Color(0xff1E294E),
       appBar: AppBar(
-        centerTitle: true,
         backgroundColor: Colors.transparent,
         toolbarHeight: 200,
         title: Text(
@@ -27,10 +23,24 @@ class _Home_ScreenState extends State<Home_Screen> {
             fontWeight: FontWeight.bold,
           ),
         ),
+        leading: IconButton(
+          tooltip: 'Menu',
+          splashColor: Color.fromARGB(255, 158, 138, 217),
+          highlightColor: Color.fromARGB(255, 5, 9, 23),
+          hoverColor: Colors.yellow,
+          onPressed: () {},
+          icon: Icon(
+            Icons.menu,
+          ),
+        ),
         actions: [
           IconButton(
             onPressed: () {},
-            icon: Icon(Icons.search),
+            icon: Icon(
+              Icons.notifications,
+              size: 35,
+            ),
+            // iconSize: 20,
           ),
         ],
       ),
@@ -49,12 +59,13 @@ class _Home_ScreenState extends State<Home_Screen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
+                searchbar(),
                 cards(
                   'Call Module',
                   'To being calling, get lead\ninformation here',
                   'assets/call.png',
-                  Color.fromARGB(255, 0, 16, 1),
-                  Colors.green,
+                  Color.fromARGB(255, 45, 14, 2),
+                  Color.fromARGB(255, 243, 130, 90),
                 ),
                 cards(
                   'F2F',
@@ -74,8 +85,8 @@ class _Home_ScreenState extends State<Home_Screen> {
                   'HCMS',
                   'Health Care\nManagement System',
                   'assets/HCMS.png',
-                  Color.fromARGB(223, 47, 42, 2),
-                  Color.fromARGB(208, 247, 224, 10),
+                  Colors.purple,
+                  Colors.deepPurple,
                 ),
               ],
             ),
@@ -90,7 +101,7 @@ class _Home_ScreenState extends State<Home_Screen> {
       padding: const EdgeInsets.all(16.0),
       child: Container(
         width: 720,
-        height: 90,
+        height: 110,
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [g1Color, g2Color],
@@ -110,13 +121,13 @@ class _Home_ScreenState extends State<Home_Screen> {
                     cardTitle,
                     style: TextStyle(
                       fontWeight: FontWeight.w900,
-                      fontSize: 24,
+                      fontSize: 25,
                       color: Colors.white,
                     ),
                   ),
                   Text(
                     cardSubTitle,
-                    style: TextStyle(fontSize: 13, color: Colors.white),
+                    style: TextStyle(fontSize: 19, color: Colors.white),
                   ),
                 ],
               ),
@@ -128,6 +139,31 @@ class _Home_ScreenState extends State<Home_Screen> {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget searchbar() {
+    return Container(
+      width: 340,
+      height: 60,
+      decoration: BoxDecoration(
+        color: Colors.grey,
+        borderRadius: BorderRadius.circular(18),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          Icon(
+            Icons.search,
+            color: Colors.white,
+            size: 35,
+          ),
+          Text(
+            'Search',
+            style: TextStyle(fontSize: 20, color: Colors.white),
+          ),
+        ],
       ),
     );
   }
